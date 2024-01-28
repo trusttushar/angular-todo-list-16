@@ -1,0 +1,15 @@
+<h1>{{ todoTitle }}</h1>
+<div class="todo-form">
+  <input [(ngModel)]="todoName" type="text" />
+  <input [(ngModel)]="todoDate" type="date" />
+  <button (click)="addToTodo()">Add</button>
+</div>
+
+<div class="todo-container">
+  <div class="todo-item" *ngFor="let item of todoList; index as i">
+    <div>{{ item.id }}</div>
+    <div>{{ item.name }}</div>
+    <div>{{ item.date | date: "dd/MM/yy" }}</div>
+    <button (click)="removeFromTodo(i)">Remove</button>
+  </div>
+</div>
